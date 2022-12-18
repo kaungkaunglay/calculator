@@ -1,1 +1,1 @@
-"This is read me" 
+Javascript calculator project
