@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-color: lightskyblue;
+        }
+        div{
+            max-width: 500px;
+            background-color: whitesmoke;
+            width: 500px;
+            height: 500px;
+            margin: auto;
+        }
+        header input{
+            width: 400px;
+            height: 50px;
+            background-color: black;
+            color: white;
+            font-size: 35px;
+            margin-left: 50px;
+            margin-top: 20px;
+            text-align: right;
+        }
+        .button-group-1 input{
+            font-size: 20px;
+            width: 60px;
+            height: 40px;
+            background-color: whitesmoke;
+            margin-top: 10px;
+            margin-left: 50px;
+            border-radius: 10px;
+            border-color: silver;
+            color: dodgerblue;
+        }
+     
+    </style>
+    <script>
+        function Display(value){
+            document.getElementById("txt_display").value += value;
+        }
+        function DeleteKey(){
+            document.getElementById("txt_display").value = "";
+            document.getElementById("txt_display").style.color = "white";
+        }
+        function Calc(){
+            let str = document.getElementById("txt_display").value.replace(/[^-()\d/*+.]/g, '');
+            let cald_str =  eval(str);
+            if(!isNaN(cald_str)){
+                document.getElementById("txt_display").value = cald_str;
+            }else{
+                document.getElementById("txt_display").value = "undefined";
+                document.getElementById("txt_display").style.color = "red";
+            }
+        }
+    </script>
+</head>
+<body>
+<div>
+    <header>
+        <input id="txt_display" type="text" readonly>
+    </header>
+        <div class="button-group-1">
+            <span>
+                <input id="plus" type="button" value="+" onclick="Display('+')">
+                <input id="minus" type="button" value="-" onclick="Display('-')">
+                <input id="multiply" type="button" value="x" onclick="Display('*')">
+                <input id="division" type="button" value="/" onclick="Display('/')">
+            </span>
+            <span>
+                <input name="txt_number" type="button" value="7" onclick="Display(7)">
+                <input name="txt_number" type="button" value="8" onclick="Display(8)">
+                <input name="txt_number" type="button" value="9" onclick="Display(9)">
+                <input type="button" value="0" onclick="Display(0)">
+            </span>
+            <br>
+            <span>
+                <input type="button" value="4" onclick="Display(4)">
+                <input type="button" value="5" onclick="Display(5)">
+                <input type="button" value="6" onclick="Display(6)">
+                <input type="button" value="=" onclick="Calc()">
+            </span>
+            <br>
+            <span>
+                 <input type="button" value="1" onclick="Display(1)">
+                <input type="button" value="2" onclick="Display(2)">
+                <input type="button" value="3" onclick="Display(3)">
+                <input type="button" value="DEL" onclick="DeleteKey()">
+            </span>
+     
+        </div>
+</div>
+</body>
+</html>
